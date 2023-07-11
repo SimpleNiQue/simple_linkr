@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style%}
+    <link rel="stylesheet" href="{% static 'css/home/index_style.css' %}">
+{% endblock style%}
+
+{% block content %}
+
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <h5>Shorten your long URLs with ease!</h5>
+
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="original_url" placeholder="Enter your URL">
+                <input type="text" name="custom_end" placeholder="Custom end (optional)">
+                <input type="text" name="link_title" placeholder="Add a title to your URL">
+                <input type="submit" name="Shorten" id="shorten-btn">
+            </form>
+        </div>
+            {% if all_urls %}
+                <a href="{{all_urls.shortened_url}}">{{ all_urls.title}}</a>
+            {% endif %}
+    </div>
+
+{% endblock content %}

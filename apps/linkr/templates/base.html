@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'images/base/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/base/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/base/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/base/favicon-16x1.png' %}">
+    <title>{% block title%}{% endblock title%} - URL Shortener</title>
+    
+    {% block style%}
+        <link rel="stylesheet" href="{% static 'css/base/style.css' %}">
+    {% endblock style%}
+</head>
+<body>
+    <section class="content">
+        <header>
+            {% block header %}{% endblock header %}
+        </header>
+
+        {% block content %}{% endblock content %}
+    </section>
+</body>
+</html>
